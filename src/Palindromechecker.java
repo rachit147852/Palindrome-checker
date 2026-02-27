@@ -11,7 +11,6 @@ public class Palindromechecker
 
         System.out.println("=== Palindrome Checker App (UC6 - Queue + Stack Based) ===");
         System.out.print("Enter a string: ");
-
         String input = scanner.nextLine();
 
         Stack<Character> stack = new Stack<>();
