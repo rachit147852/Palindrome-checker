@@ -1,21 +1,42 @@
 import java.util.Scanner;
 
-public class Palindromechecker {
-    public static void main(String[] args){
-        Scanner in = new Scanner(System.in);
-        String a;
+public class Palindromechecker
+{
+    public static void main(String[] args) {
 
-        System.out.println("Enter string:");
-        a = in.nextLine();
-         String b="";
+        Scanner scanner = new Scanner(System.in);
 
-        for(int i =a.length()-1;i>=0;i--){
-            b+=a.charAt(i);
-                }
+        System.out.println("=== Palindrome Checker App (UC4 - Character Array Based) ===");
+        System.out.print("Enter a string: ");
 
-        if(b.equals(a))
-            System.out.println("It is palindrome");
-        else
-            System.out.println("Not a palindrome");
+        String input = scanner.nextLine();
+
+        // Convert string to char array
+        char[] characters = input.toCharArray();
+
+        // Two-pointer technique
+        int start = 0;
+        int end = characters.length - 1;
+
+        boolean isPalindrome = true;
+
+        while (start < end) {
+
+            if (characters[start] != characters[end]) {
+                isPalindrome = false;
+                break;
+            }
+
+            start++;
+            end--;
+        }
+
+        if (isPalindrome) {
+            System.out.println("Result: The given string is a Palindrome.");
+        } else {
+            System.out.println("Result: The given string is NOT a Palindrome.");
+        }
+
+        scanner.close();
     }
 }
