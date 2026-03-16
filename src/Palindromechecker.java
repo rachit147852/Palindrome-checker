@@ -1,17 +1,27 @@
-public class Palindromechecker
-{
+import java.util.ArrayDeque;
+import java.util.Deque;
+
+public class UseCase7PalindromeCheckerApp {
+
     public static void main(String[] args) {
 
-        System.out.println("======================================");
-        System.out.println("      Welcome to Palindrome Checker   ");
-        System.out.println("======================================");
+        String input = "refer";
+        Deque<Character> deque = new ArrayDeque<>();
 
-        System.out.println("Application Name  : PalindromeChecker App");
-        System.out.println("Application Version : v1.0.0");
+        for(char c : input.toCharArray()) {
+            deque.addLast(c);
+        }
 
-        System.out.println("--------------------------------------");
-        System.out.println("Application initialized successfully.");
-        System.out.println("Ready for palindrome validation...");
-        System.out.println("======================================");
+        boolean isPalindrome = true;
+
+        while(deque.size() > 1) {
+            if(deque.removeFirst() != deque.removeLast()) {
+                isPalindrome = false;
+                break;
+            }
+        }
+
+        System.out.println("Input : " + input);
+        System.out.println("Is Palindrome? : " + isPalindrome);
     }
 }
